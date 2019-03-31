@@ -6,19 +6,25 @@ import './App.css';
 import AppNavbar from './components/layouts/AppNavbars';
 import Dashboard from './components/layouts/Dashboard';
 
+/* Redux Firebase FireStore */
+import { Provider } from 'react-redux';
+import store from './store';
+
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <AppNavbar />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Dashboard} />
-            </Switch>
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <AppNavbar />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Dashboard} />
+              </Switch>
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
+      </Provider>
     );
   }
 }
